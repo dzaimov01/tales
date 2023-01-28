@@ -1,37 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+namespace tale;
 
-namespace tale
+public class Graph
 {
-    internal class Graph
+    public List<Node> Nodes { get; set; }
+
+    public Graph()
     {
-        private int[,] graph;
-        private int[] weights;
-
-        public Graph(int size)
-        {
-            graph = new int[size, size];
-            weights = new int[size, size];
-        }
-
-        public void AddEdge(int from, int to, int weight)
-        {
-            graph[from, to] = 1;
-            weights[from, to] = weight;
-        }
-
-        public int[,] GetGraph()
-        {
-            return graph;
-        }
-
-        public int[] GetWeights()
-        {
-            return weights;
-        }
+        this.Nodes = new List<Node>();
     }
 
+    public void AddNode(Node node)
+    {
+        this.Nodes.Add(node);
+    }
+
+    public void AddEdge(Node startNode, Node endNode, int weight)
+    {
+        Edge edge = new Edge(startNode, endNode, weight);
+        startNode.Edges.Add(edge);
+    }
 }
