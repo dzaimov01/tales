@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\PU\\AlgorithmsAndDataStructures\\tales\\tale\\tale\\tale.csproj": {}
+    "C:\\Users\\Shadowwalker\\Source\\Repos\\tales\\tale\\tale\\tale.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\PU\\AlgorithmsAndDataStructures\\tales\\tale\\tale\\tale.csproj": {
+    "C:\\Users\\Shadowwalker\\Source\\Repos\\tales\\tale\\tale\\tale.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\PU\\AlgorithmsAndDataStructures\\tales\\tale\\tale\\tale.csproj",
+        "projectUniqueName": "C:\\Users\\Shadowwalker\\Source\\Repos\\tales\\tale\\tale\\tale.csproj",
         "projectName": "tale",
-        "projectPath": "D:\\Projects\\PU\\AlgorithmsAndDataStructures\\tales\\tale\\tale\\tale.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\PU\\AlgorithmsAndDataStructures\\tales\\tale\\tale\\obj\\",
+        "projectPath": "C:\\Users\\Shadowwalker\\Source\\Repos\\tales\\tale\\tale\\tale.csproj",
+        "packagesPath": "C:\\Users\\Shadowwalker\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Shadowwalker\\Source\\Repos\\tales\\tale\\tale\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Shadowwalker\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -53,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\user\\.dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
