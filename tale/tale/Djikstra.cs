@@ -13,6 +13,33 @@ class Djikstra
             weight = w;
         }
     }
+    
+    static List<List<Node>> EnterGraphData() {
+        Console.Write("Enter the number of nodes in the graph: ");
+        int n = int.Parse(Console.ReadLine());
+
+        List<List<Node>> graph = new List<List<Node>>();
+
+        for (int i = 0; i < n; i++) {
+            graph.Add(new List<Node>());
+        }
+
+        for (int i = 0; i < n; i++) {
+            Console.Write("Enter the number of edges for node " + i + ": ");
+            int m = int.Parse(Console.ReadLine());
+
+            for (int j = 0; j < m; j++) {
+                Console.Write("Enter the destination node and weight for edge " + j + ": ");
+                string[] input = Console.ReadLine().Split();
+                int dest = int.Parse(input[0]);
+                int weight = int.Parse(input[1]);
+
+                graph[i].Add(new Node(dest, weight));
+            }
+        }
+
+        return graph;
+    }
 
     static int[] DijkstraBetweenTwoPoints(List<List<Node>> graph, int sourceNode, int destinationNode)
     {
