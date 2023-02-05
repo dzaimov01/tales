@@ -9,57 +9,54 @@ public class Graph
         _vertices = vertices;
     }
 
-    private int MinmumDistance(int[] distances, bool[] visited)
+    private static int MinDistance(int[] distance, bool[] shortestPathTreeSet)
     {
         int min = int.MaxValue;
-        int minIndex = -1;
+        int minIndex = 0;
 
-        for (int i = 0; i < distances.Length; i++)
+        for (int v = 0; v < distance.Length; v++)
         {
-            if(!visited[i] && min >= distances[i])
+            if (shortestPathTreeSet[v] == false && distance[v] <= min)
             {
-                min = distances[i];
-                minIndex = i;
+                min = distance[v];
+                minIndex = v;
             }
         }
 
         return minIndex;
     }
-    
-    public void PerformDjikstra(int src)
+
+    public int[] Djikstra(int source)
     {
-        int size = _vertices.GetLength(0);
+        int n = _vertices.GetLength(0);
+        int[] distance = new int[n];
+        bool[] shortestPathTreeSet = new bool[n];
 
-
-        int[] dist = new int[size];  
-        
-        bool[] visited = new bool[size];
-        
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < n; i++)
         {
-            dist[i] = int.MaxValue;
-            visited[i] = false;
+            distance[i] = int.MaxValue;
+            shortestPathTreeSet[i] = false;
         }
-        
-        dist[src] = 0;
- 
-        for (int count = 0; count < size - 1; count++)
+
+        distance[source] = 0;
+
+        for (int count = 0; count < n - 1; count++)
         {
-            int currentNode = MinmumDistance(dist, visited);
-            
-            visited[currentNode] = true;
-            
-            for (int v = 0; v < size; v++)
-                if (!visited[v] && _vertices[currentNode, v] != int.MaxValue &&
-                    dist[currentNode] != int.MaxValue &&
-                    dist[currentNode] + _vertices[currentNode, v] < dist[v])
+            int u = MinDistance(distance, shortestPathTreeSet);
+            shortestPathTreeSet[u] = true;
+
+            for (int v = 0; v < n; v++)
+            {
+                if (!shortestPathTreeSet[v] && _vertices[u, v] != 0 && distance[u] != int.MaxValue && distance[u] + _vertices[u, v] < distance[v])
                 {
-                    dist[v] = dist[currentNode] + _vertices[currentNode, v];
+                    distance[v] = distance[u] + _vertices[u, v];
                 }
+            }
         }
-        PrintShortestPath(dist);
+
+        return distance;
     }
-    void PrintShortestPath(int[] dist)
+     void PrintShortestPath(int[] dist)
     {
         Console.Write("Vertex \t\t Distance "
                       + "from Source\n");
