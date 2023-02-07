@@ -28,7 +28,7 @@ class Program
         if (nodesForC != null)
             for (int i = 1; i < nodesForC.Length; i++)
             {
-                result = pathsForW.Item1[i] < timeForC ? int.MinValue : timeForC;
+                result = pathsForW.Item1[i] < timeForC ? 0 : timeForC;
             }
 
         Console.WriteLine(result > int.MinValue ? result : "No path available");
