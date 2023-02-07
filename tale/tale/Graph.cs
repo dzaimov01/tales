@@ -22,7 +22,6 @@ public class Graph
                 minIndex = v;
             }
         }
-
         return minIndex;
     }
 
@@ -56,14 +55,6 @@ public class Graph
                 }
             }
         }
-
         return Tuple.Create(distance, path);
-    }
-     void PrintShortestPath(int[] dist)
-    {
-        Console.Write("Vertex \t\t Distance "
-                      + "from Source\n");
-        for (int i = 0; i < _vertices.GetLength(0); i++)
-            Console.Write(i + " \t\t " + dist[i] + "\n");
     }
 }
