@@ -19,19 +19,16 @@ class Program
         int[,] graphInput = ReadGraph(edges, numberWeights);
 
         Graph graph = new Graph(graphInput);
-        Tuple<int[], int[]> pathsForC = graph.Djikstra(c);
-        Tuple<int[], int[]> pathsForW = graph.Djikstra(w);
+        Tuple<int[], int[]> pathsForC = graph.Dijkstra(c);
+        Tuple<int[], int[]> pathsForW = graph.Dijkstra(w);
 
-        int timeForC = graph.Djikstra(c).Item1[b];
+        int timeForC = graph.Dijkstra(c).Item1[b];
         string[]? nodesForC = GetPath(pathsForC.Item2, b)?.Split(" -> ");
         int result = 0;
         if (nodesForC != null)
             for (int i = 1; i < nodesForC.Length; i++)
             {
-                if (pathsForW.Item1[i] < timeForC)
-                    result = int.MinValue;
-                else
-                    result = timeForC;
+                result = pathsForW.Item1[i] < timeForC ? int.MinValue : timeForC;
             }
 
         Console.WriteLine(result > int.MinValue ? result : "No path available");

@@ -25,7 +25,7 @@ public class Graph
         return minIndex;
     }
 
-    public Tuple<int[], int[]> Djikstra(int source)
+    public Tuple<int[], int[]> Dijkstra(int source)
     {
         int n = _vertices.GetLength(0);
         int[] distance = new int[n];
