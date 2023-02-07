@@ -26,16 +26,18 @@ public class Graph
         return minIndex;
     }
 
-    public int[] Djikstra(int source)
+    public Tuple<int[], int[]> Djikstra(int source)
     {
         int n = _vertices.GetLength(0);
         int[] distance = new int[n];
+        int[] path = new int[n];
         bool[] shortestPathTreeSet = new bool[n];
 
         for (int i = 0; i < n; i++)
         {
             distance[i] = int.MaxValue;
             shortestPathTreeSet[i] = false;
+            path[i] = -1;
         }
 
         distance[source] = 0;
@@ -50,11 +52,12 @@ public class Graph
                 if (!shortestPathTreeSet[v] && _vertices[u, v] != 0 && distance[u] != int.MaxValue && distance[u] + _vertices[u, v] < distance[v])
                 {
                     distance[v] = distance[u] + _vertices[u, v];
+                    path[v] = u;
                 }
             }
         }
 
-        return distance;
+        return Tuple.Create(distance, path);
     }
      void PrintShortestPath(int[] dist)
     {
